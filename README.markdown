@@ -44,7 +44,7 @@ or wrap your code in a closure.
 
 attributes:
  * `min`: whether to include the minified source files
- * `theme`: the theme to include, from:
+ * `theme`: the theme to include (see [Themeroller](http://jqueryui.com/themeroller/))
    * black-tie
    * blitzer
    * cupertino
@@ -73,5 +73,5 @@ attributes:
 more info
 ---------
 
-<http://www.jquery.com>
-<http://www.jqueryui.com>
+ * <http://www.jquery.com>
+ * <http://www.jqueryui.com>
