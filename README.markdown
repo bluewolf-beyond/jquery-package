@@ -10,6 +10,11 @@ quickly include jQuery on Visualforce pages.
 quick start
 -----------
 
+install the managed package by following these links:
+
+ * [Production install](https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti000000017md)
+ * [Sandbox install](https://test.salesforce.com/packaging/installPackage.apexp?p0=04ti000000017md)
+
 add the component to your pages and you're off.
 
 ```visualforce
