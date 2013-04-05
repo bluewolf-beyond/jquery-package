@@ -1,0 +1,17 @@
+<apex:component access="global" layout="none">
+  <apex:attribute access="global" type="String"
+                  name="theme"    default="smoothness"
+                  description="The name of a jQuery UI standard theme to load.  See the Themeroller (http://jqueryui.com/themeroller/) for a gallery of options." />
+  <apex:attribute access="global" type="Boolean"
+                  name="min"      default="true"
+                  description="Specify whether to load minified JavaScript and CSS files." />
+  <apex:variable var="corejs" value="js/jquery{!IF(min, '.min', '')}.js" />
+  <apex:variable var="uijs"   value="js/jquery-ui{!IF(min, '.min', '')}.js" />
+  <apex:variable var="uicss"  value="css/{!theme}/jquery-ui{!IF(min, '.min', '')}.css" />
+  <apex:includeScript value="{!URLFOR($Resource.UI, corejs)}" />
+  <apex:includeScript value="{!URLFOR($Resource.UI, uijs)}" />
+  <apex:stylesheet value="{!URLFOR($Resource.UI, uicss)}" />
+  <script>
+      jQuery.noConflict();
+  </script>
+</apex:component>
