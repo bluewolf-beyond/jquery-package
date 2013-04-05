@@ -24,17 +24,20 @@ documentation
 loads the latest versions of jQuery (currently 1.9.1) and
 jQuery UI (currently 1.10.2).  automatically calls
 `jQuery.noConflict()` to avoid collision with the other
-libraries loaded by Salesforce, so use `jQuery` and not `$`.
+libraries loaded by Salesforce, so use `jQuery` and not `$`,
+or wrap your code in a closure.
 
 ```visualforce
 <apex:page>
     <jQuery:UI theme="le-frog" min="false" />
     <script>
-        jQuery(function() {
+        (function($) {
+            $(function() {
 
-            // doSomeStuff
+                // doSomeStuff
 
-        });
+            });
+        })(jQuery);
     </script>
 </apex:page>
 ```
