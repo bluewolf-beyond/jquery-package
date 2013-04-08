@@ -18,15 +18,15 @@ install the managed package by following these links:
 add one of the components to your pages and you're off.
 
 ```visualforce
-    <jQuery:Core />
+<jQuery:Core />
 ```
 
 ```visualforce
-    <jQuery:UI />
+<jQuery:UI />
 ```
 
 ```visualforce
-    <jQuery:Mobile />
+<jQuery:Mobile />
 ```
 
 documentation
