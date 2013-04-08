@@ -34,21 +34,21 @@ or wrap your code in a closure.
 
 ```visualforce
 <apex:page>
-    <jQuery:UI theme="le-frog" min="false" />
+    <jQuery:UI theme="le-frog" min="false" onReady="init();" />
     <script>
-        (function($) {
-            $(function() {
+        function init() {
 
-                // doSomeStuff
+            // doSomeStuff
 
-            });
-        })(jQuery);
+        }
     </script>
 </apex:page>
 ```
 
 attributes:
+ * `alias`: alias to use for global jQuery variable
  * `min`: whether to include the minified source files
+ * `onReady`: JavaScript code to execute when the DOM is loaded
  * `theme`: the theme to include (see [Themeroller](http://jqueryui.com/themeroller/))
    * black-tie
    * blitzer
