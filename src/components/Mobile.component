@@ -1,0 +1,24 @@
+<apex:component access="global" layout="none">
+  <apex:attribute access="global" type="Boolean"
+                  name="min"      default="true"
+                  description="Specify whether to load minified JavaScript and CSS files." />
+  <apex:attribute access="global" type="String"
+                  name="alias"    default=""
+                  description="Alias to use for global jQuery variable." />
+  <apex:attribute access="global" type="String"
+                  name="onReady"   default=""
+                  description="JavaScript code to invoke when the DOM is fully loaded." />
+  <apex:variable var="corejs" value="js/jquery{!IF(min, '.min', '')}.js" />
+  <apex:variable var="mobilejs"  value="js/jquery-mobile{!IF(min, '.min', '')}.js" />
+  <apex:variable var="mobilecss" value="css/jquery-mobile{!IF(min, '.min', '')}.css" />
+  <apex:includeScript value="{!URLFOR($Resource.UI, corejs)}" />
+  <apex:includeScript value="{!URLFOR($Resource.Mobile, mobilejs)}" />
+  <apex:stylesheet value="{!URLFOR($Resource.Mobile, mobilecss)}" />
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  </head>
+  <script>
+      {!IF( ISBLANK(alias), '', 'var ' & alias & ' = ' )}jQuery.noConflict();
+      {!IF( ISBLANK(onReady), '', 'jQuery(function(){' & onReady & '});' )}
+  </script>
+</apex:component>
