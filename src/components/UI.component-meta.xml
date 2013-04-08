@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>27.0</apiVersion>
+    <description>Loads the latest versions of jQuery and jQuery UI.  Automatically calls jQuery.noConflict() to avoid collision with the other libraries loaded by Salesforce.</description>
     <label>UI</label>
 </ApexComponent>
