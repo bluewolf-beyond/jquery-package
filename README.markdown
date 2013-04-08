@@ -12,8 +12,8 @@ quick start
 
 install the managed package by following these links:
 
- * [Production install](https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti000000018Bt)
- * [Sandbox install](https://test.salesforce.com/packaging/installPackage.apexp?p0=04ti000000018Bt)
+ * [Production install](https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti000000018By)
+ * [Sandbox install](https://test.salesforce.com/packaging/installPackage.apexp?p0=04ti000000018By)
 
 add the component to your pages and you're off.
 
