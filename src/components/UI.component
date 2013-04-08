@@ -8,6 +8,9 @@
   <apex:attribute access="global" type="String"
                   name="alias"    default=""
                   description="Alias to use for global jQuery variable." />
+  <apex:attribute access="global" type="String"
+                  name="onReady"   default=""
+                  description="JavaScript code to invoke when the DOM is fully loaded." />
   <apex:variable var="corejs" value="js/jquery{!IF(min, '.min', '')}.js" />
   <apex:variable var="uijs"   value="js/jquery-ui{!IF(min, '.min', '')}.js" />
   <apex:variable var="uicss"  value="css/{!theme}/jquery-ui{!IF(min, '.min', '')}.css" />
@@ -16,5 +19,6 @@
   <apex:stylesheet value="{!URLFOR($Resource.UI, uicss)}" />
   <script>
       {!IF( ISBLANK(alias), '', 'var ' & alias & ' = ' )}jQuery.noConflict();
+      {!IF( ISBLANK(onReady), '', 'jQuery(function(){' & onReady & '});' )}
   </script>
 </apex:component>
