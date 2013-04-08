@@ -1,0 +1,17 @@
+<apex:component access="global" layout="none">
+  <apex:attribute access="global" type="Boolean"
+                  name="min"      default="true"
+                  description="Specify whether to load minified JavaScript and CSS files." />
+  <apex:attribute access="global" type="String"
+                  name="alias"    default=""
+                  description="Alias to use for global jQuery variable." />
+  <apex:attribute access="global" type="String"
+                  name="onReady"   default=""
+                  description="JavaScript code to invoke when the DOM is fully loaded." />
+  <apex:variable var="corejs" value="js/jquery{!IF(min, '.min', '')}.js" />
+  <apex:includeScript value="{!URLFOR($Resource.UI, corejs)}" />
+  <script>
+      {!IF( ISBLANK(alias), '', 'var ' & alias & ' = ' )}jQuery.noConflict();
+      {!IF( ISBLANK(onReady), '', 'jQuery(function(){' & onReady & '});' )}
+  </script>
+</apex:component>
