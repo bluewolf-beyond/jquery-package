@@ -5,6 +5,9 @@
   <apex:attribute access="global" type="Boolean"
                   name="min"      default="true"
                   description="Specify whether to load minified JavaScript and CSS files." />
+  <apex:attribute access="global" type="String"
+                  name="alias"    default=""
+                  description="Alias to use for global jQuery variable." />
   <apex:variable var="corejs" value="js/jquery{!IF(min, '.min', '')}.js" />
   <apex:variable var="uijs"   value="js/jquery-ui{!IF(min, '.min', '')}.js" />
   <apex:variable var="uicss"  value="css/{!theme}/jquery-ui{!IF(min, '.min', '')}.css" />
@@ -12,6 +15,6 @@
   <apex:includeScript value="{!URLFOR($Resource.UI, uijs)}" />
   <apex:stylesheet value="{!URLFOR($Resource.UI, uicss)}" />
   <script>
-      jQuery.noConflict();
+      {!IF( ISBLANK(alias), '', 'var ' & alias & ' = ' )}jQuery.noConflict();
   </script>
 </apex:component>
