@@ -15,19 +15,26 @@ install the managed package by following these links:
  * [Production install](https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti000000018By)
  * [Sandbox install](https://test.salesforce.com/packaging/installPackage.apexp?p0=04ti000000018By)
 
-add the component to your pages and you're off.
+add one of the components to your pages and you're off.
 
 ```visualforce
-<apex:page>
+    <jQuery:Core />
+```
+
+```visualforce
     <jQuery:UI />
-</apex:page>
+```
+
+```visualforce
+    <jQuery:Mobile />
 ```
 
 documentation
 -------------
 
-loads the latest versions of jQuery (currently 1.9.1) and
-jQuery UI (currently 1.10.2).  automatically calls
+loads the latest versions of jQuery (currently 1.9.1),
+jQuery UI (currently 1.10.2) and/or jQuery Mobile
+(currently 1.3.0), then automatically calls
 `jQuery.noConflict()` to avoid collision with the other
 libraries loaded by Salesforce, so use `jQuery` and not `$`,
 or wrap your code in a closure.
@@ -49,7 +56,7 @@ attributes:
  * `alias`: alias to use for global jQuery variable
  * `min`: whether to include the minified source files
  * `onReady`: JavaScript code to execute when the DOM is loaded
- * `theme`: the theme to include (see [Themeroller](http://jqueryui.com/themeroller/))
+ * `theme`: the theme to include (only for UI: see [Themeroller](http://jqueryui.com/themeroller/))
    * black-tie
    * blitzer
    * cupertino
@@ -80,3 +87,4 @@ more info
 
  * <http://www.jquery.com>
  * <http://www.jqueryui.com>
+ * <http://www.jquerymobile.com>
