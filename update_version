@@ -1,0 +1,39 @@
+#!/bin/bash
+
+UI_VERSION=`curl https://api.github.com/repos/jquery/jquery-ui/git/refs/tags 2>/dev/null | grep "\"ref" | cut -d "\"" -f 4 | cut -d "/" -f 3 | grep "^\([0-9]*\.\)*[0-9]*$" | tail -1`
+#MOBILE_VERSION=`curl https://api.github.com/repos/jquery/jquery-mobile/git/refs/tags 2>/dev/null | grep "\"ref" | cut -d "\"" -f 4 | cut -d "/" -f 3 | grep "^\([0-9]*\.\)*[0-9]*$" | tail -1`
+
+UI_URL="http://jqueryui.com/resources/download/jquery-ui-$UI_VERSION.zip"
+THEMES_URL="http://jqueryui.com/resources/download/jquery-ui-themes-$UI_VERSION.zip"
+#MOBILE_URL="http://jquerymobile.com/releases/jquery.mobile-$MOBILE_VERSION.zip"
+
+curl $UI_URL > jquery-ui.zip
+curl $THEMES_URL > jquery-ui-themes.zip
+#curl $MOBILE_URL > jquery-mobile.zip
+
+unzip jquery-ui.zip
+unzip jquery-ui-themes.zip
+
+CORE_VERSION=`ls jquery-ui-1.10.3/jquery-*.js | cut -d "/" -f 2 | cut -d "-" -f 2 | sed "s/\.js//"`
+CORE_URL="http://code.jquery.com/jquery-$CORE_VERSION.min.js"
+
+mkdir js
+
+curl $CORE_URL > js/jquery.min.js
+
+cp jquery-ui-$UI_VERSION/jquery-*.js js/jquery.js
+cp jquery-ui-$UI_VERSION/ui/jquery-ui.js js/
+cp jquery-ui-$UI_VERSION/ui/minified/jquery-ui.min.js js/
+
+cp -r jquery-ui-themes-$UI_VERSION/themes css
+
+zip -r UI css js
+
+mv UI.zip src/staticresources/UI.resource
+
+rm -r js
+rm -r css
+rm jquery-ui.zip
+rm jquery-ui-themes.zip
+rm -r jquery-ui-$UI_VERSION
+rm -r jquery-ui-themes-$UI_VERSION
