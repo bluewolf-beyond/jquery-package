@@ -6,9 +6,9 @@
         <h1>My Title</h1>
     </div><!-- /header -->
 
-    <div data-role="content">   
-        <p>Hello world</p>      
+    <div data-role="content">
+        <p>If the jQuery package is successfully installed you should see this page formatted for mobile.</p>
     </div><!-- /content -->
 
-</div><!-- /page -->
+  </div><!-- /page -->
 </apex:page>
