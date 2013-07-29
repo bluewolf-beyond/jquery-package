@@ -33,7 +33,7 @@ documentation
 -------------
 
 loads the latest versions of jQuery (currently 1.9.1),
-jQuery UI (currently 1.10.2) and/or jQuery Mobile
+jQuery UI (currently 1.10.3) and/or jQuery Mobile
 (currently 1.3.0), then automatically calls
 `jQuery.noConflict()` to avoid collision with the other
 libraries loaded by Salesforce, so use `jQuery` and not `$`,
