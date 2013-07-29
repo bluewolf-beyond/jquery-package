@@ -1,0 +1,3 @@
+<apex:page >
+  <jQuery:UI alias="$j" theme="le-frog" onReady="$j('#bodyCell').append($j('<span id=\'doIt\'>foobar</span>')); $j('#doIt').dialog();" />
+</apex:page>

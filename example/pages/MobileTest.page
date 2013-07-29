@@ -1,0 +1,14 @@
+<apex:page showHeader="false" sidebar="false">
+  <jQuery:Mobile alias="$j" onReady="console.log($j)" min="false" />
+  <div data-role="page">
+
+    <div data-role="header">
+        <h1>My Title</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">   
+        <p>Hello world</p>      
+    </div><!-- /content -->
+
+</div><!-- /page -->
+</apex:page>
